@@ -1,0 +1,23 @@
+﻿  Raytracing.cpp
+C:\Users\PC\source\repos\Raytracing\Raytracing\camera.h(41,53): warning C4244: '=': conversion from 'double' to '_Ty', possible loss of data
+C:\Users\PC\source\repos\Raytracing\Raytracing\camera.h(41,53): warning C4244:         with
+C:\Users\PC\source\repos\Raytracing\Raytracing\camera.h(41,53): warning C4244:         [
+C:\Users\PC\source\repos\Raytracing\Raytracing\camera.h(41,53): warning C4244:             _Ty=unsigned char
+C:\Users\PC\source\repos\Raytracing\Raytracing\camera.h(41,53): warning C4244:         ]
+  (compiling source file 'Raytracing.cpp')
+  
+C:\Users\PC\source\repos\Raytracing\Raytracing\camera.h(42,53): warning C4244: '=': conversion from 'double' to '_Ty', possible loss of data
+C:\Users\PC\source\repos\Raytracing\Raytracing\camera.h(42,53): warning C4244:         with
+C:\Users\PC\source\repos\Raytracing\Raytracing\camera.h(42,53): warning C4244:         [
+C:\Users\PC\source\repos\Raytracing\Raytracing\camera.h(42,53): warning C4244:             _Ty=unsigned char
+C:\Users\PC\source\repos\Raytracing\Raytracing\camera.h(42,53): warning C4244:         ]
+  (compiling source file 'Raytracing.cpp')
+  
+C:\Users\PC\source\repos\Raytracing\Raytracing\camera.h(43,53): warning C4244: '=': conversion from 'double' to '_Ty', possible loss of data
+C:\Users\PC\source\repos\Raytracing\Raytracing\camera.h(43,53): warning C4244:         with
+C:\Users\PC\source\repos\Raytracing\Raytracing\camera.h(43,53): warning C4244:         [
+C:\Users\PC\source\repos\Raytracing\Raytracing\camera.h(43,53): warning C4244:             _Ty=unsigned char
+C:\Users\PC\source\repos\Raytracing\Raytracing\camera.h(43,53): warning C4244:         ]
+  (compiling source file 'Raytracing.cpp')
+  
+  Raytracing.vcxproj -> C:\Users\PC\source\repos\Raytracing\x64\Debug\Raytracing.exe
