@@ -8,6 +8,7 @@
 
 #include "hittable.h"
 #include "utility.h"
+#include "material.h"
 #include "stb_image_write.h"
 
 class camera
@@ -116,27 +117,40 @@ class camera
         color ray_color(const ray& r, const hittable& world) const 
         {
             ray current_ray = r;
-            color accumulated_color(1.0, 1.0, 1.0); // start with white light
+            color accumulated_attenuation(1.0, 1.0, 1.0);
             const int max_depth = 50; // prevent infinite bounces
             int depth = 0;
 
-            while (depth < max_depth) {
+            for (int bounces = 0; bounces < max_depth; bounces++)
+            {
                 hit_record rec;
-                if (world.hit(current_ray, interval(0.001, infinity), rec)) {
-                    vec3 direction = random_on_hemisphere(rec.normal);
-                    accumulated_color *= 0.5; // apply attenuation
-                    current_ray = ray(rec.p, direction);
-                    depth++;
+                if (world.hit(current_ray, interval(0.001, infinity), rec))
+                {
+                    ray scattered;
+                    color attenuation;
+                    if (rec.mat->scatter(current_ray, rec, attenuation, scattered))
+                    {
+                        accumulated_attenuation = accumulated_attenuation * attenuation;
+                        current_ray = scattered; // proceed to next bounce
+                    }
+                    else
+                    {
+                        // Material absorbed the ray completely
+                        return color(0, 0, 0);
+                    }
                 }
-                else {
+                else
+                {
+                    // No hit -> blend with background
                     vec3 unit_direction = unit_vector(current_ray.direction());
                     auto a = 0.5 * (unit_direction.y() + 1.0);
                     color background = (1.0 - a) * color(1.0, 1.0, 1.0) +
                         a * color(0.5, 0.7, 1.0);
-                    return accumulated_color * background;
+                    return accumulated_attenuation * background;
                 }
             }
 
+            // Exceeded bounce limit without hitting background
             return color(0, 0, 0);
         }
 };
